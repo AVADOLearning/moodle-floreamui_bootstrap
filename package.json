@@ -1,0 +1,37 @@
+{
+  "name": "moodle-floreamui_bootstrap",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Bootstrap UI",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "gulp": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AVADOLearning/moodle-floreamui_bootstrap.git"
+  },
+  "keywords": [
+    "moodle"
+  ],
+  "authors": [
+    {
+      "name": "Luke Carrier",
+      "email": "luke.carrier@avadolearning.com"
+    }
+  ],
+  "license": "GPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/AVADOLearning/moodle-floreamui_bootstrap/issues"
+  },
+  "homepage": "https://github.com/AVADOLearning/moodle-floreamui_bootstrap#readme",
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wrap-amd": "^0.5.0"
+  }
+}

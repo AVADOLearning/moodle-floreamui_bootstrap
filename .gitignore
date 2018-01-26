@@ -4,4 +4,4 @@
 /package-lock.json
 
 # AMD modules
-/amd/build/
+/amd/
