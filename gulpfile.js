@@ -22,19 +22,19 @@
 
 var gulp = require('gulp');
 var rename = require('gulp-rename');
+var replace = require('gulp-replace');
 var uglify = require('gulp-uglify');
 var wrap = require('gulp-wrap-amd');
 
 var BOOTSTRAP_MODULES = {
+    affix: {
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
+        exports: 'Affix'
+    },
     alert: {
-        deps: [
-            'floreamui_jquery/jquery',
-            'floreamui_bootstrap/util'
-        ],
-        params: [
-            '$',
-            'Util'
-        ],
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
         exports: 'Alert'
     },
 
@@ -45,45 +45,26 @@ var BOOTSTRAP_MODULES = {
     },
 
     carousel: {
-        deps: [
-            'floreamui_jquery/jquery',
-            'floreamui_bootstrap/util'
-        ],
-        params: [
-            '$',
-            'Util'
-        ],
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
         exports: 'Carousel'
     },
 
     collapse: {
-        deps: [
-            'floreamui_jquery/jquery',
-            'floreamui_bootstrap/util'
-        ],
-        params: [
-            '$',
-            'Util'
-        ],
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
         exports: 'Collapse'
     },
 
-    // Requires Popper
     dropdown: {
-        deps: [],
-        params: [],
-        exports: ''
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
+        exports: 'Dropdown'
     },
 
     modal: {
-        deps: [
-            'floreamui_jquery/jquery',
-            'floreamui_bootstrap/util'
-        ],
-        params: [
-            '$',
-            'Util'
-        ],
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
         exports: 'Modal'
     },
 
@@ -92,48 +73,32 @@ var BOOTSTRAP_MODULES = {
             'floreamui_jquery/jquery',
             'floreamui_bootstrap/tooltip'
         ],
-        params: [
-            '$',
-            'Tooltip'
-        ],
+        params: ['$'],
         exports: 'Popover'
     },
 
     scrollspy: {
-        deps: [
-            'floreamui_jquery/jquery',
-            'floreamui_bootstrap/util'
-        ],
-        params: [
-            '$',
-            'Util'
-        ],
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
         exports: 'ScrollSpy'
     },
 
     tab: {
-        deps: [
-            'floreamui_jquery/jquery',
-            'floreamui_bootstrap/util'
-        ],
-        params: [
-            '$',
-            'Util'
-        ],
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
         exports: 'Tab'
     },
 
-    // Requires Popper
     tooltip: {
-        deps: [],
-        params: [],
-        exports: ''
-    },
-
-    util: {
         deps: ['floreamui_jquery/jquery'],
         params: ['$'],
-        exports: 'Util'
+        exports: 'Tooltip'
+    },
+
+    transition: {
+        deps: ['floreamui_jquery/jquery'],
+        params: ['$'],
+        exports: 'null'
     }
 };
 
@@ -141,7 +106,9 @@ var BOOTSTRAP_MODULES = {
     Object.keys(BOOTSTRAP_MODULES).forEach(function(name) {
         var module = BOOTSTRAP_MODULES[name];
         gulp.task('bootstrap:' + name, function() {
-            return gulp.src('./node_modules/bootstrap/js/dist/' + name + '.js')
+            return gulp.src('./node_modules/bootstrap/js/' + name + '.js')
+                .pipe(replace('+function ($) {', ''))
+                .pipe(replace('}(jQuery);', ''))
                 .pipe(wrap(module))
                 .pipe(gulp.dest('./amd/src'));
         });
