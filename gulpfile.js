@@ -28,49 +28,49 @@ var wrap = require('gulp-wrap-amd');
 
 var BOOTSTRAP_MODULES = {
     affix: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Affix'
     },
     alert: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Alert'
     },
 
     button: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Button'
     },
 
     carousel: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Carousel'
     },
 
     collapse: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Collapse'
     },
 
     dropdown: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Dropdown'
     },
 
     modal: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Modal'
     },
 
     popover: {
         deps: [
-            'floreamui_jquery/jquery',
+            'jquery',
             'floreamui_bootstrap/tooltip'
         ],
         params: ['$'],
@@ -78,25 +78,25 @@ var BOOTSTRAP_MODULES = {
     },
 
     scrollspy: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'ScrollSpy'
     },
 
     tab: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Tab'
     },
 
     tooltip: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'Tooltip'
     },
 
     transition: {
-        deps: ['floreamui_jquery/jquery'],
+        deps: ['jquery'],
         params: ['$'],
         exports: 'null'
     }
