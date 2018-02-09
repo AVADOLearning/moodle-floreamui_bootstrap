@@ -4,4 +4,6 @@
 /package-lock.json
 
 # AMD modules
-/amd/
+/amd/build/
+/amd/src/
+!/amd/src/bootstrap.js
